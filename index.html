@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Baptist Church of Krotz Springs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <img src="crosspfp.jpg" alt="Church Logo" class="header-logo">
+            <h1>First Baptist Church of Krotz Springs</h1>
+        </div>
+        <p class="tagline">Building faith, hope, and love together.</p>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">Meet Our Church</a>
+            <a href="ourmission.html">Our Mission</a>
+            <a href="prayer.html">Prayer Request</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+    </header>
+
+    <section class="slideshow">
+        <div class="slides fade">
+            <img src="church.jpg" alt="Church Service">
+        </div>
+        <div class="slides fade">
+            <img src="church2.jpg" alt="Community Gathering">
+        </div>
+        <div class="slides fade">
+            <img src="grave.jpg" alt="Sunday Worship">
+        </div>
+
+        <!-- Dots at the bottom -->
+        <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+
+    <main id="mainContent">
+        <section id="verse">
+            <h2>Random Verses</h2>
+            <p id="dailyVerse">Loading verse...</p>
+        </section>
+
+        <div id="sideSections">
+            <section id="messageOfTheDay">
+                <h2>Message Board</h2>
+                <p id="dailyMessage">Loading message...</p>
+            </section>
+
+            <section id="events">
+                <h2>Upcoming Events</h2>
+                <div id="calendar"></div>
+            </section>
+        </div>
+
+        <!-- Centered Google Map -->
+        <section class="map-section">
+            <h2>Find Us</h2>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54981.91650910158!2d-91.80181311410513!3d30.538854943810374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86245e0d36bb8213%3A0x19da625fd750b98b!2sFirst%20Baptist%20Church!5e0!3m2!1sen!2sus!4v1761419519396!5m2!1sen!2sus"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <section class="footer-info">
+            <div class="footer-column">
+                <h3>Visit Us</h3>
+                <p>First Baptist Church of Krotz Springs</p>
+                <p>740 Front St, Krotz Springs, LA 70750</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Service Times</h3>
+                <p>Sunday Worship – 10:30 AM & 4:30 PM</p>
+                <p>Wednesday Bible Study – 6:00 PM</p>
+            </div>
+
+            <div class="footer-column center-connect">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/FBCKrotzSprings" target="_blank"><img src="facebook.png"
+                            alt="Facebook"></a>
+                    <a href="email.html" target="_blank"><img src="email.png" alt="Email"></a>
+                    <a href="337 566-3582" target="_blank"><img src="phone.png" alt="Call"></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 First Baptist Church of Krotz Springs</p>
+    </footer>
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="verse.js"></script>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slides");
+            let dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].classList.add("active");
+            setTimeout(showSlides, 4000); // Change image every 4 seconds
+        }
+    </script>
+
+</body>
+
+</html>
